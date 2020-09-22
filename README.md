@@ -14,13 +14,13 @@ Maybe you need to install llvm first:
 ```
 OS=$(uname)
 
-
 if [ "$OS" = "Darwin" ]; then
     # brew install llvm@8
     export LLVM_CONFIG_PATH=/usr/local/opt/llvm/bin/llvm-config
     export PATH=/opt/local/llvm/bin:${PATH}
 else
-    # apt-get install llvm-8
+    # sudo apt-get install llvm-8
+    # sudo apt-get install clang-8
     export LLVM_CONFIG_PATH=/usr/bin/llvm-config-8
     export PATH=/usr/bin:${PATH}
 fi
