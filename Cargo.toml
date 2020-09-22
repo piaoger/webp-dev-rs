@@ -15,11 +15,11 @@ default = []
 buildtype-docs-only = []
 
 [dependencies]
-libc = "^0.2"
-image = "^0.22"
+libc = "0.2"
+image = "0.23"
 
 [build-dependencies]
-tar = "0.4.26"
-flate2 = "1.0.12"
-bindgen = "0.51"
-cc = "1.0.46"
+tar = "0.4"
+flate2 = "1.0"
+bindgen = "0.55"
+cc = "1.0"
