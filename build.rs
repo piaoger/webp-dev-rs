@@ -142,11 +142,13 @@ pub const WEBP_HEADERS: &[&str] = &[
 // BUILD PIPELINE
 ///////////////////////////////////////////////////////////////////////////////
 
+// from: http://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.1.0.tar.gz
+
 fn build() {
     let out_path = out_dir();
     // SETUP
-    extract_tar_file("archive/webmproject-libwebp-8bac456.v1.0.3.tar.gz", &out_path);
-    let source_path = out_path.join("webmproject-libwebp-8bac456");
+    extract_tar_file("archive/libwebp-1.1.0.tar.gz", &out_path);
+    let source_path = out_path.join("libwebp-1.1.0");
     // BUILD
     run_make(&source_path, "makefile.unix");
     // LINK
@@ -184,7 +186,7 @@ fn build() {
             .generate()
             .expect("Unable to generate bindings")
             .write_to_file(out_path.join(file_name))
-            .expect("Couldn't write bindings!");    
+            .expect("Couldn't write bindings!");
     };
     codegen("bindings_webp.rs", WEBP_HEADERS);
     // COMPILE CBITS
@@ -202,7 +204,7 @@ fn build() {
         })
         .file("cbits.c")
         .compile("cbits");
-    
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////
